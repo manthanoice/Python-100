@@ -85,6 +85,21 @@ spock = '''
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;/#######\;;;;;;;
 '''
 
+print('''
+The Rules are simple -
+
+Scissors cuts Paper
+Paper covers Rock
+Rock crushes Lizard
+Lizard poisons Spock
+Spock smashes Scissors
+Scissors decapitates Lizard
+Lizard eats Paper
+Paper disproves Spock
+Spock vaporizes Rock
+(and as it always has) Rock crushes Scissors
+''')
+
 your_choice = int(input('''
 Select your choice from options below!
 1 - Rock
