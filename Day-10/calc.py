@@ -53,6 +53,7 @@ def calc():
             should_continue = False
             calc()
         else:
+            print("Either type 'y' or 'n'")
             should_continue = False
 calc()
 
