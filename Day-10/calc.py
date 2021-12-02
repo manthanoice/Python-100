@@ -52,6 +52,8 @@ def calc():
         elif more_continue == 'n':
             should_continue = False
             calc()
+        else:
+            should_continue = False
 calc()
 
 #Just typo Day-10
