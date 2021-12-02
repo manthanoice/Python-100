@@ -53,3 +53,5 @@ def calc():
             should_continue = False
             calc()
 calc()
+
+#Just typo Day-10
