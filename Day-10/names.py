@@ -6,3 +6,5 @@ def formatting_name(first_name, last_name):
 first_name = input("Enter your first name: ")
 last_name = input("Enter your last name: ")
 print("Your name is: {}".format(formatting_name(first_name=first_name, last_name=last_name)))
+
+#Typo
