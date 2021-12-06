@@ -31,4 +31,6 @@ def game():
         else:
             print("Oops Wrong answer! You lost! :( and your final Score is {}".format(score))
             should_continue = False
-game()
+
+while input("Do you want to play the game? 'Y' or 'N': ").lower() == 'y':
+    game()
