@@ -2,7 +2,7 @@ from game_data import the_data
 import random
 from art import the_logo
 from art import vs
-from replit import clear
+import os
 
 def game():
     score = 0
@@ -22,12 +22,12 @@ def game():
         your_guess = input("Who has more followers? Type 'A' or 'B': ").upper()
         if your_guess == 'A' and choice_a['follower_count'] > choice_b['follower_count']:
             score+=1
-            choice_a = choice_a
-            clear()
+            choice_b = choice_a
+            os.system('cls')
         elif your_guess == 'B' and choice_b['follower_count'] > choice_a['follower_count']:
             score+=1
             choice_b = choice_a
-            clear()
+            os.system('cls')
         else:
             print("Oops Wrong answer! You lost! :( and your final Score is {}".format(score))
             should_continue = False
