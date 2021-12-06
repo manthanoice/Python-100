@@ -16,6 +16,8 @@ def game():
         if num_1 == num_2:
             num_2 = random.randint(0, 49)
         choice_b = the_data[num_2]
+        if choice_b['follower_count'] == choice_a['follower_count']:
+            choice_b = the_data[random.randint(0, 49)]
         print("Compare A: {}, a {}, from {}!".format(choice_a['name'], choice_a['description'], choice_a['country']))
         print(vs)
         print("Against B: {}, a {}, from {}!".format(choice_b['name'], choice_b['description'], choice_b['country']))
