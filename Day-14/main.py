@@ -33,4 +33,5 @@ def game():
             should_continue = False
 
 while input("Do you want to play the game? 'Y' or 'N': ").lower() == 'y':
+    os.system('cls')
     game()
