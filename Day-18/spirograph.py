@@ -14,7 +14,7 @@ tim = turtle.Turtle()
 for i in range(120):
     tim.speed(20)
     tim.color(random_color())
-    tim.circle(300)
+    tim.circle(200)
     tim.left(3)
 
 screen = turtle.Screen()
