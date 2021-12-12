@@ -1,4 +1,5 @@
-from turtle import *
+import turtle as turtle
+import random
 
 starting_position = [(0, 0), (-20, 0), (-40, 0)]
 move_distance = 20
@@ -6,6 +7,15 @@ UP = 90
 DOWN = 270
 LEFT = 180
 RIGHT = 0
+
+def random_color():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    my_tuple = (r, g, b)
+    return my_tuple
+
+turtle.colormode(255)
 
 class Snake:
     def __init__(self):
@@ -27,9 +37,9 @@ class Snake:
         '''
         Too add one segment to the snake
         '''
-        toto = Turtle(shape='square')
+        toto = turtle.Turtle(shape='square')
         toto.penup()
-        toto.color('white')
+        toto.color(random_color())
         toto.goto(position)
         self.segmantes.append(toto)
     
