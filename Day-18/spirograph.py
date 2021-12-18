@@ -12,7 +12,7 @@ turtle.colormode(255)
 tim = turtle.Turtle()
 
 for i in range(120):
-    tim.speed(20)
+    tim.speed(10000)
     tim.color(random_color())
     tim.circle(200)
     tim.left(3)
