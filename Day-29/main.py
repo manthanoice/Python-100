@@ -1,4 +1,3 @@
-from os import error
 from tkinter import *
 from tkinter import messagebox
 import random
@@ -45,9 +44,12 @@ def save():
             with open('data.json', mode='w') as json_file:
                 json.dump(json_dict, json_file, indent=4)
         else:
-            data.update(json_dict)
-            with open('data.json', mode='w') as json_file:
-                json.dump(data, json_file, indent=4)
+            if website in data and email in data[website]['email']:
+                messagebox.showerror(title='Error', message='The entry already exists')
+            else:
+                data.update(json_dict)
+                with open('data.json', mode='w') as json_file:
+                    json.dump(data, json_file, indent=4)
         finally:
             website_entry.delete(0, END)
             password_entry.delete(0, END)
