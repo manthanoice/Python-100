@@ -1,4 +1,3 @@
-import builtins
 from tkinter import *
 import pandas as pd
 import random
