@@ -9,3 +9,5 @@ if weekday == 5:
         all_quotes = file.readlines()
         quote = random.choice(all_quotes)
     print(quote)
+
+    #add
