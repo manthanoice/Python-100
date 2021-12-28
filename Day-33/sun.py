@@ -8,6 +8,10 @@ the_params = {
     'lng' : 71.1924,
     'formatted': 0
 }
+
+my_mail = 'fortheapiss@gmail.com'
+my_password = 'lolyouthoughtiwouldputmypasswordhere?'
+
 def is_night():
     the_request = requests.get(url='https://api.sunrise-sunset.org/json', params=the_params)
     the_request.raise_for_status()
@@ -36,8 +40,12 @@ def is_is_visible():
         return True
 
 while True:
-    time.sleep(6.0)
+    time.sleep(60)
     if is_is_visible() and is_night():
         connection = smtplib.SMTP('smtp.gmail.com')
         connection.starttls()
-        connection.login('email', 'pass')
+        connection.login(my_mail, my_password)
+        connection.sendmail(
+            from_addr = my_mail,
+            to_addrs = 'sahiltotala972@gmail.com',
+            msg ='Look up For ISS')
