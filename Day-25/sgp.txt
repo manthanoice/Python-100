@@ -1,0 +1,23 @@
+Image captioning
+
+Photo Sketching
+
+Computer Vision and Image Processing
+
+https://googleweblight.com/i?u=https://data-flair.training/blogs/machine-learning-datasets/
+
+https://www.reddit.com/r/MachineLearning/comments/2h0lh5/any_interesting_machine_learning_project_ideas/
+
+https://www.reddit.com/r/learnmachinelearning/comments/hke4mz/70_machine_learning_datasets_project_ideas/
+
+https://www.yelp.com/dataset
+
+https://data-flair.training/blogs/python-based-project-image-caption-generator-cnn/
+
+https://www.cs.cmu.edu/~mengtial/proj/sketch/
+
+https://arxiv.org/abs/1901.00542
+
+https://paperswithcode.com/paper/photo-sketching-inferring-contour-drawings
+
+https://github.com/USTCzzl/Deecamp27
