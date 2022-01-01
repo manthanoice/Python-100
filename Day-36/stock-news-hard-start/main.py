@@ -52,14 +52,16 @@ if the_perc > 1:
 
     the_news = requests.get(NEWS_ENDPOINT,params=news_params)
 
-    print(the_news.raise_for_status)
+    the_news.raise_for_status
 
     articles = the_news.json()['articles']
 
     three_articles = articles[:3]
-    print(three_articles)
-
-
+    for i in range(3):
+        print('\n')
+        the_title = three_articles[i]['title']
+        the_desc = three_articles[i]['description']
+        print(the_title)    
 
 
 
