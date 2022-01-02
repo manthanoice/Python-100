@@ -14,9 +14,8 @@ NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
 #HINT 2: Work out the value of 5% of yerstday's closing stock price. 
 
 the_params = {
-    'function':'TIME_SERIES_INTRADAY',
+    'function':'TIME_SERIES_DAILY',
     'symbol':STOCK,
-    'interval':'60min',
     'apikey':'YKNMMVKPKRDP5VGH'
 }
 
@@ -24,10 +23,12 @@ the_request = requests.get(STOCK_ENDPOINT, params=the_params)
 
 the_request.status_code
 
-the_data = the_request.json()
+the_data = the_request.json()['Time Series (Daily)']
 
-today = float(the_data['Time Series (60min)']['2021-12-31 12:00:00']['4. close'])
-yesterday = float(the_data['Time Series (60min)']['2021-12-30 12:00:00']['4. close'])
+the_data_2 = [value for (key, value) in the_data.items()]
+
+today = float(the_data_2[0]['4. close'])
+yesterday = float(the_data_2[1]['4. close'])
 
 print('Today is: {}'.format(today))
 print('Yesterday is: {}'.format(yesterday))
@@ -61,7 +62,9 @@ if the_perc > 1:
         print('\n')
         the_title = three_articles[i]['title']
         the_desc = three_articles[i]['description']
-        print(the_title)    
+        print(the_title)
+        print('\n')
+        print(the_desc)
 
 
 
