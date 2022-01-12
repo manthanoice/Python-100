@@ -1,11 +1,17 @@
 h1{
     color:coral;
 }
-img{
-    border-radius: 50%;
-    height: 250px;
-    width: 400px;
-}
+
 body{
     background-color:azure;
+}
+
+.notgoat{
+    border-radius: 50%;
+}
+
+.goat{
+    height: 300px;
+    width: 400px;
+    border-radius: 50%;
 }
