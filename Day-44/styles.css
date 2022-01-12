@@ -1,11 +1,27 @@
-div{
-    background-color: #00ADB5;
+.top-container{
+    position: relative;
+    background-color: #E4F9F5;
+    padding-top: 50px;
 }
 
 body{
     margin: 0;
+    text-align: center;
+    background-color: #E4F9F5;
 }
 
 h1{
     margin-top: 0px;
+}
+
+.bottom-cloud{
+    position: absolute;
+    left: 350px;
+    bottom: 300px;
+}
+
+.top-cloud{
+    position: absolute;
+    right: 350px;
+    top: 50px;
 }
