@@ -1,0 +1,12 @@
+div{
+    height: 740px;  
+    width: 740px;
+    background-color: red;
+    border: solid;
+    border-width: 0px 10px 20px 30px;
+    padding: 20px;
+}
+
+body{
+    margin: 0%;
+}
