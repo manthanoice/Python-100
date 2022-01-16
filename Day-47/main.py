@@ -35,5 +35,5 @@ if the_price <= user_price:
         connection.sendmail(
             from_addr=sender_mail,
             to_addrs=receiver_mail,
-            msg='Subject: Amazon Price Alert! \n\n{}\n{}'.format(message, url)
+            msg='Subject: Amazon Price Alert \n\n{}\n{}'.format(message, url)
         )
