@@ -1,6 +1,7 @@
 from datetime import date
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import json
 
 #setting up driver
 chrome_driver_path = 'C:\Development\chromedriver.exe'
@@ -32,7 +33,7 @@ for i in range(len(date)):
     }
 
 #finally printing the data we added
-print(the_dir)
+print(json.dumps(the_dir, indent=4, sort_keys=True))
 
 #quitting the drive :P
 driver.quit()
