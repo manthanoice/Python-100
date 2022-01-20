@@ -25,12 +25,14 @@ class InternetSpeedTwitterBot():
         self.driver = webdriver.Chrome(executable_path=self.path)
         self.download_speed = 0
         self.upload_speed = 0
+        self.driver.maximize_window()
     
     def get_internet_speed(self):
         '''
         returns download speed and upload speed
         '''
         #getting driver to the speedtest website
+        time.sleep(4)
         self.driver.get(SPEEDTEST)
         self.go = self.driver.find_element(By.XPATH, '//*[@id="container"]/div/div[3]/div/div/div/div[2]/div[3]/div[1]/a/span[4]')
         self.go.click()

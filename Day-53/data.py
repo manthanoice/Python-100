@@ -1,6 +1,8 @@
-from os import urandom
 from bs4 import BeautifulSoup
 import requests
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import time
 
 header = {
     'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36',
@@ -11,7 +13,55 @@ my_response = requests.get(url='https://www.zillow.com/homes/for_rent/1-_beds/?s
 
 soup = BeautifulSoup(my_response.text, 'html.parser')
 
-price = soup.select('.list-card-price')
-for i in price:
-    the_text = i.getText().strip('bd').replace('+','').replace('/mo','')[0:-3]
-    print(the_text)
+all_prices = soup.select('.list-card-price')
+
+the_price = []
+for i in all_prices:
+    the_price.append(i.getText().replace('bd','').replace('+','').replace('/mo','').split()[0])
+
+all_links = soup.select('.list-card-top a')
+the_link = []
+for i in all_links:
+    the_link.append(i.get('href'))
+
+the_address = []
+all_addresses = soup.select('.list-card-addr')
+for i in all_addresses:
+    the_address.append(i.getText())
+
+google_form = 'https://docs.google.com/forms/d/1bHGU6AI2li9XbqGh4db25h2ZlkBWUPnMsVeN57rP250/viewform?edit_requested=true'
+
+path = 'C:\Development\chromedriver.exe'
+
+driver = webdriver.Chrome(executable_path=path)
+
+driver.maximize_window()
+
+driver.get(url=google_form)
+
+time.sleep(3)
+
+for i in range(len(the_link)-1):
+
+    what_is_address = driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div[2]/textarea')
+    what_is_address.click()
+    what_is_address.send_keys(the_address[i])
+
+    what_is_price = driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input')
+    what_is_price.send_keys(the_price[i])
+
+    what_is_link_to_the_property = driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input')
+    what_is_link_to_the_property.click()
+    what_is_link_to_the_property.send_keys(the_link[i])
+
+    the_submit_button = driver.find_element(By.XPATH, '//*[@id="mG61Hd"]/div[2]/div/div[3]/div[1]/div[1]/div/span/span')
+    the_submit_button.click()
+
+    time.sleep(2)
+
+    another_response = driver.find_element(By.LINK_TEXT, 'Submit another response')
+    another_response.click()
+
+driver.quit()
+
+#you can generate spreadsheet automatically too but I don't wanna mess with my gmail credentials :P
