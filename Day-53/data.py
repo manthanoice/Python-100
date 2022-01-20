@@ -14,7 +14,6 @@ my_response = requests.get(url='https://www.zillow.com/homes/for_rent/1-_beds/?s
 soup = BeautifulSoup(my_response.text, 'html.parser')
 
 all_prices = soup.select('.list-card-price')
-
 the_price = []
 for i in all_prices:
     the_price.append(i.getText().replace('bd','').replace('+','').replace('/mo','').split()[0])
