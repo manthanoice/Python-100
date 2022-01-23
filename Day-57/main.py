@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 import requests
+import random
+from datetime import datetime
 import json
 
 def age(name):
@@ -16,13 +18,23 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return '<h1>Hey in the URL above after the "/" enter your name and it will predict your age and gender ;)</h1>'
+    curret_year = datetime.now().year
+    random_number = random.randint(1, 10000)
+    return render_template('index.html', num=random_number, the_year=curret_year)
 
 @app.route('/<yourname>')
 def your_name(yourname):
     your_age = age(yourname)
     your_gender = gender(yourname)
     return render_template('agender.html', the_name=yourname, the_age = your_age, the_gender = your_gender)
+
+@app.route('/blog/<num>')
+def get_to_blog(num):
+    print(num)
+    blog_url = 'https://api.npoint.io/e4b5fedd96faddb691d0'
+    response = requests.get(url=blog_url).text
+    all_response = json.loads(response)
+    return render_template('blog.html', posts = all_response)
 
 if __name__ == '__main__':
     app.run(debug=True)
