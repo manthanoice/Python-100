@@ -5,10 +5,11 @@ import json
 app = Flask(__name__)
 
 all_response = requests.get(url='https://api.npoint.io/e4b5fedd96faddb691d0').json()
+the_length = len(all_response)
 
 @app.route('/')
 def home():
-    return render_template("index.html", blog_post = all_response)
+    return render_template("index.html", blog_post = all_response, the_num = the_length)
 
 @app.route('/post/<int:num>')
 def the_body(num):
