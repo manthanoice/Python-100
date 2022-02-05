@@ -1,0 +1,8 @@
+.navbar-brand{
+    margin-left: 10%;
+}
+
+body{
+    background-image: url("../img/home-bg.jpg");
+    background-size: 1300px;
+}
